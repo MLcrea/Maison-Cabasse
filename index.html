@@ -27,6 +27,171 @@ body {
   background: var(--fond);
   color: var(--encre);
   font-family: var(--texte);
+  font-size: 1.15rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+main { max-width: 60rem; margin: 0 auto; padding: 4rem 1.5rem 3rem; }
+
+.banniere { display: block; width: 100%; height: auto; margin: 0 0 3rem; border-radius: 4px; }
+
+header { margin-bottom: 2.75rem; }
+h1 {
+  font-family: var(--titre);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 7vw, 4rem);
+  line-height: 1.05;
+  color: var(--bleu);
+  margin: 0 0 0.9rem;
+}
+.poste { font-size: 1.35rem; font-weight: 300; margin: 0; }
+
+/* Deux bandeaux horizontaux : texte à gauche, téléchargement à droite */
+.bandeau {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem 2.5rem;
+  align-items: center;
+  background: var(--blanc);
+  border: 1px solid var(--bleu);
+  border-radius: 6px;
+  padding: 2rem 2.25rem;
+  margin-bottom: 1.25rem;
+}
+.bandeau.en { background: #eef2f5; }
+.bandeau h2 {
+  font-family: var(--titre);
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin: 0 0 0.75rem;
+  color: var(--bleu-texte);
+}
+.bandeau p { margin: 0 0 0.6rem; font-weight: 300; max-width: 38rem; }
+.bandeau p:last-child { margin-bottom: 0; }
+
+.bouton {
+  display: inline-block;
+  white-space: nowrap;
+  padding: 0.8rem 1.6rem;
+  background: var(--encre);
+  color: var(--fond);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+.bouton:hover { background: var(--bleu-texte); }
+.bouton:focus-visible, .contact a:focus-visible { outline: 3px solid var(--bleu-texte); outline-offset: 3px; }
+
+.contact { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--bleu); }
+.contact p { margin: 0 0 0.3rem; }
+.contact a { color: var(--bleu-texte); text-underline-offset: 3px; }
+.contact a:hover { color: var(--encre); }
+
+@media (max-width: 42rem) {
+  main { padding-top: 2.5rem; }
+  .bandeau { grid-template-columns: 1fr; padding: 1.5rem; }
+  .bouton { justify-self: start; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<main>
+  <!-- Optionnel : dépose ta bannière dans /images/banniere.png -->
+  <img class="banniere" src="images/banniere.png" alt="" hidden onload="this.hidden=false" onerror="this.remove()">
+
+  <header>
+    <h1>Mathilde Legrand</h1>
+    <p class="poste">Chargée de projet marketing</p>
+  </header>
+
+  <section class="bandeau" aria-labelledby="fr">
+    <div>
+      <h2 id="fr">En français</h2>
+      <p>Curieuse par nature et passionnée de belle technologie, c’est avec un vrai plaisir que je candidate à la Maison Cabasse : une maison dont je serais fière de porter la voix.</p>
+      <p>Vous trouverez ici mon CV et ma lettre de motivation, réunis dans un seul fichier.</p>
+    </div>
+    <a class="bouton" href="documents/Mathilde_Legrand_CV_LM_FR.pdf" download>Télécharger mon dossier</a>
+  </section>
+
+  <section class="bandeau en" lang="en" aria-labelledby="en">
+    <div>
+      <h2 id="en">In English</h2>
+      <p>Curious by nature and a lifelong enthusiast of fine technology, I would be delighted to join Maison Cabasse, a house whose voice I would be proud to carry.</p>
+      <p>English is my language of the heart, so here are my resume and cover letter in a single file, in the language I love.</p>
+    </div>
+    <a class="bouton" href="documents/Mathilde_Legrand_Resume_CL_EN.pdf" download>Download my application</a>
+  </section>
+
+  <div class="contact">
+    <p>Mathilde Legrand · Plouédern, Finistère</p>
+    <p><a href="mailto:mlegrand.crea@gmail.com">mlegrand.crea@gmail.com</a> · <a href="tel:+33662256234">06 62 25 62 34</a></p>
+    <p><a href="https://www.linkedin.com/in/mathildelegrandcrea" target="_blank" rel="noopener">LinkedIn</a></p>
+  </div>
+</main>
+</body>
+</html>
+
+Rappel : colle ça dans index.html, mets tes deux PDF dans documents/ avec exactement ces noms : Mathilde_Legrand_CV_LM_FR.pdf et Mathilde_Legrand_Resume_CL_EN.pdf. Si tu veux, je te rédige maintenant le mail à Sophie. 😊
+
+SUper, j'ai réussi à faire la page main et à mettre le code ! 
+En revanche, ça manque un peu de whimsy. 
+"Mathilde Legrand
+Chargée de projet marketing" 
+On peut faire mieux je pense :) 
+
+Peut être : 
+Mathilde Legrand
+Communication & Marketing · Événementiel · Gestion de projet · Image de marque
+
+Ensuite les cadres, je serais pas contre que le liseret bleu s'anime lorsqu'on passe la souris dessus. Un petit effet très discret, qui reste dans ma DA et ma color chart.
+Idem pour le bouton de téléchargement :)
+Et même, des petites notes de musique qui apparaissent, quand on appuie sur le bouton pour télécharger ?
+
+"En français
+Curieuse par nature et passionnée de belle technologie, c’est avec un vrai plaisir que je candidate à la Maison Cabasse : une maison dont je serais fière de porter la voix.
+Vous trouverez ici mon CV et ma lettre de motivation, réunis dans un seul fichier."
+Je trouve le titre et le texte pas fous. Ils attendent quand même un profil un peu costaud, et là je trouve ça vraiment trop générique comme texte. 
+
+Aussi, je préférerais que les "cases" soient centrées sur la page, le titre centré, les textes justifiés, et en dessous, centré, le bouton.
+
+Pareil pour le footer, je pense qu'on peut faire plus esthétique :) 
+
+Il faut que tu me donnes tout le code ici. Je suis pas dév, donc je saurai pas faire les modifs ligne par ligne. On recommence de "zéro" quoi
+
+Je repars de zéro : voici la page complète, à copier-coller en remplaçant tout le contenu de ton index.html. Les noms des PDF et des dossiers restent identiques, donc rien d’autre à toucher.
+
+html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Mathilde Legrand · Candidature / Application</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+<style>
+@font-face { font-family: "Lovelo"; src: url("fonts/Lovelo.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Balgin"; src: url("fonts/Balgin.woff2") format("woff2"); font-display: swap; }
+
+:root {
+  --fond: #f7f7f3;
+  --bleu: #a7b9c8;
+  --bleu-texte: #5f7a91;
+  --encre: #464742;
+  --blanc: #ffffff;
+  --titre: "Lovelo", "Montserrat", sans-serif;
+  --texte: "Balgin", "Josefin Sans", sans-serif;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--encre);
+  font-family: var(--texte);
   font-size: 1.12rem;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
@@ -138,4 +303,139 @@ h1 {
 .bouton:hover, .bouton:focus-visible {
   background-size: 100% 100%;
   transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(70, 71,
+  box-shadow: 0 8px 18px rgba(70, 71, 66, 0.18);
+}
+.bouton:active { transform: translateY(0); }
+a:focus-visible { outline: 3px solid var(--bleu-texte); outline-offset: 3px; }
+
+/* ---------- Notes de musique ---------- */
+.note {
+  position: absolute;
+  pointer-events: none;
+  font-family: "Segoe UI Symbol", "Arial Unicode MS", "Noto Sans Symbols", sans-serif;
+  font-size: 1.6rem;
+  opacity: 0;
+  animation: monte 1.8s ease-out forwards;
+}
+@keyframes monte {
+  0%   { opacity: 0; transform: translate(0, 0) rotate(0deg); }
+  15%  { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--dx), -150px) rotate(var(--rot)); }
+}
+
+/* ---------- Pied de page ---------- */
+footer { margin-top: 3.5rem; text-align: center; }
+footer .vague { margin-bottom: 1.4rem; }
+.merci { margin: 0 0 1.4rem; font-weight: 300; font-style: italic; }
+.signature {
+  font-family: var(--titre);
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  color: var(--bleu);
+  margin: 0 0 0.2rem;
+}
+.lieu { margin: 0 0 1.4rem; font-size: 0.95rem; font-weight: 300; letter-spacing: 0.1em; }
+.liens { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
+.liens a {
+  color: var(--encre);
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.4rem 1.1rem;
+  border: 1px solid var(--bleu);
+  border-radius: 999px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.liens a:hover { background: var(--bleu); color: var(--blanc); }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 42rem) {
+  main { padding-top: 2.5rem; }
+  .carte { padding: 1.75rem 1.4rem; }
+}
+
+/* ---------- Accessibilité : on coupe les animations si demandé ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+<main>
+
+  <header>
+    <h1>Mathilde Legrand</h1>
+    <p class="metiers">
+      <span>Communication &amp; Marketing</span>
+      <span>Événementiel</span>
+      <span>Gestion de projet</span>
+      <span>Image de marque</span>
+    </p>
+    <div class="vague" aria-hidden="true"></div>
+  </header>
+
+  <section class="carte" aria-labelledby="titre-fr">
+    <p class="etiquette">Version française</p>
+    <h2 id="titre-fr">Candidature au poste de chargée de projet marketing</h2>
+    <p class="texte">Treize années à bâtir et à faire rayonner des marques : image, notoriété, presse, digital, événements. De la création de ma propre marque à la structuration d’un pôle communication, j’ai toujours cherché des résultats concrets : un engagement LinkedIn multiplié par 2,2, une newsletter à 48 % d’ouverture, plus de 300 ebooks vendus.</p>
+    <p class="texte">Passionnée de belle technologie et de savoir-faire d’exception, c’est avec un vrai plaisir que je candidate à la Maison Cabasse : une maison dont je serais fière de porter la voix. Mon CV et ma lettre de motivation sont réunis dans un seul fichier.</p>
+    <a class="bouton" href="documents/Mathilde_Legrand_CV_LM_FR.pdf" download>Télécharger mon dossier</a>
+  </section>
+
+  <section class="carte en" lang="en" aria-labelledby="titre-en">
+    <p class="etiquette">English version</p>
+    <h2 id="titre-en">Application for the Marketing Project Manager position</h2>
+    <p class="texte">Thirteen years building brands and making them shine: image, awareness, press, digital and events. From creating my own brand to building a communications department from scratch, I have always aimed for concrete results: LinkedIn engagement multiplied by 2.2, a newsletter with a 48% open rate, over 300 ebooks sold.</p>
+    <p class="texte">A lifelong enthusiast of fine technology and exceptional craftsmanship, I would be delighted to join Maison Cabasse, a house whose voice I would be proud to carry. English is my language of the heart, so my resume and cover letter come in a single file, in the language I love.</p>
+    <a class="bouton" href="documents/Mathilde_Legrand_Resume_CL_EN.pdf" download>Download my application</a>
+  </section>
+
+  <footer>
+    <div class="vague" aria-hidden="true"></div>
+    <p class="merci">Merci de votre attention · Thank you for your time</p>
+    <p class="signature">Mathilde Legrand</p>
+    <p class="lieu">Plouédern · Finistère</p>
+    <nav class="liens" aria-label="Contact">
+      <a href="mailto:mlegrand.crea@gmail.com">Email</a>
+      <a href="tel:+33662256234">06 62 25 62 34</a>
+      <a href="https://www.linkedin.com/in/mathildelegrandcrea" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+  </footer>
+
+</main>
+
+<script>
+/* Ondes sonores décoratives (en-tête et pied de page) */
+document.querySelectorAll('.vague').forEach(function (v) {
+  for (var i = 0; i < 17; i++) {
+    var b = document.createElement('i');
+    b.style.height = Math.round(10 + 24 * Math.abs(Math.sin(i * 0.65))) + 'px';
+    b.style.animationDelay = (i * 0.12) + 's';
+    v.appendChild(b);
+  }
+});
+
+/* Notes de musique au clic sur un bouton de téléchargement (le téléchargement se lance normalement) */
+document.querySelectorAll('.bouton').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var r = btn.getBoundingClientRect();
+    var symboles = ['♪', '♫', '♬', '♩'];
+    for (var i = 0; i < 9; i++) {
+      var n = document.createElement('span');
+      n.className = 'note';
+      n.textContent = symboles[Math.floor(Math.random() * symboles.length)];
+      n.style.left = (r.left + window.scrollX + r.width * (0.15 + Math.random() * 0.7)) + 'px';
+      n.style.top = (r.top + window.scrollY + r.height / 2) + 'px';
+      n.style.setProperty('--dx', (Math.random() * 120 - 60) + 'px');
+      n.style.setProperty('--rot', (Math.random() * 50 - 25) + 'deg');
+      n.style.animationDelay = (i * 70) + 'ms';
+      n.style.color = i % 2 ? '#a7b9c8' : '#5f7a91';
+      document.body.appendChild(n);
+      setTimeout(function (el) { el.remove(); }, 2400 + i * 70, n);
+    }
+  });
+});
+</script>
+</body>
+</html>
